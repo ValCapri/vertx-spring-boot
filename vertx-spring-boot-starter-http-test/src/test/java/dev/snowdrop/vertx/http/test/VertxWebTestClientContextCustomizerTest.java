@@ -1,5 +1,6 @@
 package dev.snowdrop.vertx.http.test;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 
 @ExtendWith(MockitoExtension.class)
+@Disabled("Mockito exception issue #3029")
 public class VertxWebTestClientContextCustomizerTest {
 
     @Mock
