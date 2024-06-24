@@ -11,6 +11,7 @@ import io.vertx.core.streams.WriteStream;
 import io.vertx.mutiny.core.buffer.Buffer;
 import io.vertx.mutiny.kafka.client.producer.KafkaHeader;
 import io.vertx.mutiny.kafka.client.producer.KafkaProducerRecord;
+import mutiny.zero.flow.adapters.AdaptersToReactiveStreams;
 import org.springframework.util.StringUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -48,7 +49,7 @@ final class SnowdropKafkaProducer<K, V> implements KafkaProducer<K, V> {
 
     @Override
     public Mono<Void> flush() {
-        return Mono.from(delegate.flush().toMulti());
+        return Mono.from(AdaptersToReactiveStreams.publisher(delegate.flush().toMulti()));
     }
 
     @Override
