@@ -2,13 +2,14 @@ package dev.snowdrop.vertx.amqp;
 
 import io.vertx.amqp.AmqpClientOptions;
 import io.vertx.core.Vertx;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@AutoConfiguration
 @EnableConfigurationProperties(AmqpProperties.class)
 @ConditionalOnBean(Vertx.class)
 @ConditionalOnProperty(prefix = AmqpProperties.PROPERTIES_PREFIX, value = "enabled", matchIfMissing = true)

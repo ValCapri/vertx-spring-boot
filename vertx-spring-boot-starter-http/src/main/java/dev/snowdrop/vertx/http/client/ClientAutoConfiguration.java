@@ -7,6 +7,7 @@ import dev.snowdrop.vertx.http.client.properties.HttpClientProperties;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.HttpClientOptions;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -18,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ClientHttpConnector;
 import org.springframework.web.reactive.function.client.WebClient;
 
-@Configuration
+@AutoConfiguration
 @ConditionalOnClass({ WebClient.class, HttpClient.class })
 @ConditionalOnBean(Vertx.class)
 @ConditionalOnMissingBean(ClientHttpConnector.class)

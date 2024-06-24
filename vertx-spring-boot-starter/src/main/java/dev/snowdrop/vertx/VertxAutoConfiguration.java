@@ -1,12 +1,13 @@
 package dev.snowdrop.vertx;
 
 import io.vertx.core.Vertx;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@AutoConfiguration
 @ConditionalOnClass(Vertx.class)
 @EnableConfigurationProperties(VertxProperties.class)
 public class VertxAutoConfiguration {
