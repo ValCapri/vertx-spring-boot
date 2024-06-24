@@ -4,7 +4,7 @@
   <groupId>dev.snowdrop</groupId>
   <artifactId>vertx-spring-boot-parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.4.1-SNAPSHOT</version>
+  <version>1.5.0-SNAPSHOT</version>
 
   <name>Vert.x Spring Boot - parent</name>
   <description>Spring Boot starters of different Vert.x components</description>
@@ -263,55 +263,55 @@
               </execution>
             </executions>
           </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
-            <!--
-              Needed to bypass the encoding of the passphrase when task is executed by a job and not a human
-              Syntax could change with future releases of the plugin (after 3.0.0)
-            -->
-            <configuration>
-              <useAgent>true</useAgent>
-              <passphrase>${env.GPG_PASSPHRASE}</passphrase>
-              <gpgArguments>
-                <arg>--batch</arg>
-                <arg>--pinentry-mode</arg>
-                <arg>loopback</arg>
-              </gpgArguments>
-            </configuration>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-release-plugin</artifactId>
-            <configuration>
-              <autoVersionSubmodules>true</autoVersionSubmodules>
-              <useReleaseProfile>false</useReleaseProfile>
-              <releaseProfiles>release</releaseProfiles>
-              <goals>deploy</goals>
-            </configuration>
-          </plugin>
-          <plugin>
-            <!--See http://central.sonatype.org/pages/apache-maven.html for more information -->
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
-          </plugin>
+<!--          <plugin>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-gpg-plugin</artifactId>-->
+<!--            <version>1.6</version>-->
+<!--            &lt;!&ndash;-->
+<!--              Needed to bypass the encoding of the passphrase when task is executed by a job and not a human-->
+<!--              Syntax could change with future releases of the plugin (after 3.0.0)-->
+<!--            &ndash;&gt;-->
+<!--            <configuration>-->
+<!--              <useAgent>true</useAgent>-->
+<!--              <passphrase>${env.GPG_PASSPHRASE}</passphrase>-->
+<!--              <gpgArguments>-->
+<!--                <arg>&#45;&#45;batch</arg>-->
+<!--                <arg>&#45;&#45;pinentry-mode</arg>-->
+<!--                <arg>loopback</arg>-->
+<!--              </gpgArguments>-->
+<!--            </configuration>-->
+<!--            <executions>-->
+<!--              <execution>-->
+<!--                <id>sign-artifacts</id>-->
+<!--                <phase>verify</phase>-->
+<!--                <goals>-->
+<!--                  <goal>sign</goal>-->
+<!--                </goals>-->
+<!--              </execution>-->
+<!--            </executions>-->
+<!--          </plugin>-->
+<!--          <plugin>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-release-plugin</artifactId>-->
+<!--            <configuration>-->
+<!--              <autoVersionSubmodules>true</autoVersionSubmodules>-->
+<!--              <useReleaseProfile>false</useReleaseProfile>-->
+<!--              <releaseProfiles>release</releaseProfiles>-->
+<!--              <goals>deploy</goals>-->
+<!--            </configuration>-->
+<!--          </plugin>-->
+<!--          <plugin>-->
+<!--            &lt;!&ndash;See http://central.sonatype.org/pages/apache-maven.html for more information &ndash;&gt;-->
+<!--            <groupId>org.sonatype.plugins</groupId>-->
+<!--            <artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--            <version>1.6.8</version>-->
+<!--            <extensions>true</extensions>-->
+<!--            <configuration>-->
+<!--              <serverId>ossrh</serverId>-->
+<!--              <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+<!--              <autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+<!--            </configuration>-->
+<!--          </plugin>-->
         </plugins>
       </build>
     </profile>
