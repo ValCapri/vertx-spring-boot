@@ -35,14 +35,14 @@
   </developers>
 
   <properties>
-    <awaitility.version>4.2.0</awaitility.version>
+    <awaitility.version>4.2.1</awaitility.version>
     <!-- Align with SmallRye Reactive Utils -->
-    <mutiny-reactor.version>1.7.0</mutiny-reactor.version>
+    <mutiny-reactor.version>2.6.0</mutiny-reactor.version>
     <scala-library.version>2.13.8</scala-library.version>
-    <spring-boot.version>2.7.2</spring-boot.version>
-    <vertx.version>4.3.3</vertx.version>
+    <spring-boot.version>3.3.0</spring-boot.version>
+    <vertx.version>4.5.5</vertx.version>
     <!-- Align with Vert.x -->
-    <vertx-mutiny-clients.version>2.26.0</vertx-mutiny-clients.version>
+    <vertx-mutiny-clients.version>3.12.0</vertx-mutiny-clients.version>
     <!-- Align with Smallrye and Spring Boot -->
     <zookeeper.version>3.8.4</zookeeper.version>
 
@@ -58,8 +58,8 @@
     <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
     <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
 
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
