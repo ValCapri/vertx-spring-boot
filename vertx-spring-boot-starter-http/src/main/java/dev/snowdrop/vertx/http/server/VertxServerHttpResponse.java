@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ZeroCopyHttpOutputMessage;
 import org.springframework.http.server.reactive.AbstractServerHttpResponse;
 import reactor.core.publisher.Flux;
@@ -81,7 +82,7 @@ public class VertxServerHttpResponse extends AbstractServerHttpResponse implemen
 
     @Override
     protected void applyStatusCode() {
-        HttpStatus statusCode = getStatusCode();
+        HttpStatusCode statusCode = getStatusCode();
         if (statusCode != null) {
             delegate.setStatusCode(statusCode.value());
         }

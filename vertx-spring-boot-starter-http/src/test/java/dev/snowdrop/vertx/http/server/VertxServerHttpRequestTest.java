@@ -48,6 +48,7 @@ public class VertxServerHttpRequestTest {
     @BeforeEach
     public void setUp() {
         given(mockRoutingContext.request()).willReturn(mockHttpServerRequest);
+        given(mockRoutingContext.request().method()).willReturn(HttpMethod.GET);
         given(mockHttpServerRequest.absoluteURI()).willReturn("http://localhost:8080");
         given(mockHttpServerRequest.headers()).willReturn(new HeadersMultiMap());
 

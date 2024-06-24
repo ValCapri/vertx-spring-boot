@@ -25,6 +25,7 @@ import org.springframework.core.io.buffer.DataBufferFactory;
 import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.core.io.buffer.DefaultDataBufferFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -77,7 +78,7 @@ public class HttpFileTransferIT extends TestBase {
         Vertx vertx = getBean(Vertx.class);
         Flux<DataBuffer> dataBuffers = readFile(vertx, ORIGINAL_FILE);
 
-        HttpStatus status = getWebClient()
+        HttpStatusCode status = getWebClient()
             .post()
             .body(fromDataBuffers(dataBuffers))
             .exchange()

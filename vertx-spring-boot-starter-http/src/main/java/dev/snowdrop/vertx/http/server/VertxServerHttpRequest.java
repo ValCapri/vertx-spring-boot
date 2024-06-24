@@ -5,6 +5,7 @@ import java.net.URI;
 
 import dev.snowdrop.vertx.http.utils.BufferConverter;
 import dev.snowdrop.vertx.http.utils.CookieConverter;
+import dev.snowdrop.vertx.http.utils.HttpMethodConverter;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.net.SocketAddress;
@@ -28,7 +29,7 @@ public class VertxServerHttpRequest extends AbstractServerHttpRequest {
     private final Flux<DataBuffer> bodyFlux;
 
     public VertxServerHttpRequest(RoutingContext context, BufferConverter bufferConverter) {
-        super(initUri(context.request()), "", initHeaders(context.request()));
+        super(HttpMethodConverter.vertxToSpring(context.request().method()), initUri(context.request()), "", initHeaders(context.request()));
         this.context = context;
         this.delegate = context.request();
         this.bodyFlux = new ReadStreamFluxBuilder<Buffer, DataBuffer>()
@@ -43,7 +44,6 @@ public class VertxServerHttpRequest extends AbstractServerHttpRequest {
         return (T) delegate;
     }
 
-    @Override
     public String getMethodValue() {
         return delegate.method().name();
     }

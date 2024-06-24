@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import dev.snowdrop.vertx.http.common.WriteStreamSubscriber;
 import dev.snowdrop.vertx.http.utils.BufferConverter;
+import dev.snowdrop.vertx.http.utils.HttpMethodConverter;
 import io.vertx.core.http.HttpClientRequest;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -36,7 +37,7 @@ public class VertxClientHttpRequest extends AbstractClientHttpRequest {
 
     @Override
     public HttpMethod getMethod() {
-        return HttpMethod.resolve(delegate.getMethod().name());
+        return HttpMethodConverter.vertxToSpring(delegate.getMethod());
     }
 
     @Override

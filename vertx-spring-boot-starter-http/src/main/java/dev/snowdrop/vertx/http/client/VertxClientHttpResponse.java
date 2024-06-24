@@ -24,7 +24,6 @@ public class VertxClientHttpResponse implements ClientHttpResponse {
         this.body = body;
     }
 
-    @Override
     public int getRawStatusCode() {
         return delegate.statusCode();
     }
