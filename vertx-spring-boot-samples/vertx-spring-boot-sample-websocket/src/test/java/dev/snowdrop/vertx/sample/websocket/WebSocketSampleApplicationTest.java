@@ -4,12 +4,16 @@ import java.net.URI;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import dev.snowdrop.vertx.VertxAutoConfiguration;
+import dev.snowdrop.vertx.http.client.ClientAutoConfiguration;
+import dev.snowdrop.vertx.http.server.ServerAutoConfiguration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.web.reactive.socket.WebSocketMessage;
 import org.springframework.web.reactive.socket.client.WebSocketClient;
 import reactor.core.Disposable;
@@ -21,6 +25,7 @@ import static org.awaitility.Awaitility.await;
 import static org.hamcrest.Matchers.contains;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ImportAutoConfiguration({VertxAutoConfiguration.class, ServerAutoConfiguration.class, ClientAutoConfiguration.class})
 public class WebSocketSampleApplicationTest {
 
     @LocalServerPort

@@ -3,9 +3,13 @@ package dev.snowdrop.vertx.sample.kafka;
 import java.time.Duration;
 import java.util.List;
 
+import dev.snowdrop.vertx.VertxAutoConfiguration;
+import dev.snowdrop.vertx.http.server.ServerAutoConfiguration;
+import dev.snowdrop.vertx.kafka.KafkaAutoConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.kafka.test.context.EmbeddedKafka;
@@ -17,6 +21,7 @@ import static org.springframework.http.MediaType.TEXT_EVENT_STREAM;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EmbeddedKafka(partitions = 1, ports = { 9092 })
+@ImportAutoConfiguration({KafkaAutoConfiguration.class, VertxAutoConfiguration.class, ServerAutoConfiguration.class})
 public class KafkaSampleApplicationTest {
 
     @Autowired

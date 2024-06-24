@@ -2,9 +2,13 @@ package dev.snowdrop.vertx.sample.amqp;
 
 import java.util.List;
 
+import dev.snowdrop.vertx.VertxAutoConfiguration;
+import dev.snowdrop.vertx.amqp.AmqpAutoConfiguration;
+import dev.snowdrop.vertx.http.server.ServerAutoConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -15,6 +19,7 @@ import static org.awaitility.Awaitility.await;
 import static org.springframework.http.MediaType.TEXT_EVENT_STREAM;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ImportAutoConfiguration({AmqpAutoConfiguration.class, VertxAutoConfiguration.class, ServerAutoConfiguration.class})
 public class AmqpSampleApplicationTest {
 
     @Autowired
