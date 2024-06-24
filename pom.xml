@@ -37,12 +37,13 @@
   <properties>
     <awaitility.version>4.2.1</awaitility.version>
     <!-- Align with SmallRye Reactive Utils -->
-    <mutiny-reactor.version>2.6.0</mutiny-reactor.version>
-    <scala-library.version>2.13.8</scala-library.version>
-    <spring-boot.version>3.3.0</spring-boot.version>
-    <vertx.version>4.5.5</vertx.version>
+    <mutiny-reactor.version>2.6.1</mutiny-reactor.version>
+    <mutiny-zero.version>1.1.0</mutiny-zero.version>
+    <scala-library.version>2.13.9</scala-library.version>
+    <spring-boot.version>3.3.1</spring-boot.version>
+    <vertx.version>4.5.8</vertx.version>
     <!-- Align with Vert.x -->
-    <vertx-mutiny-clients.version>3.12.0</vertx-mutiny-clients.version>
+    <vertx-mutiny-clients.version>3.13.1</vertx-mutiny-clients.version>
     <!-- Align with Smallrye and Spring Boot -->
     <zookeeper.version>3.8.4</zookeeper.version>
 
@@ -111,6 +112,11 @@
         <groupId>io.smallrye.reactive</groupId>
         <artifactId>smallrye-mutiny-vertx-kafka-client</artifactId>
         <version>${vertx-mutiny-clients.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.smallrye.reactive</groupId>
+        <artifactId>mutiny-zero-flow-adapters</artifactId>
+        <version>${mutiny-zero.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.zookeeper</groupId>
