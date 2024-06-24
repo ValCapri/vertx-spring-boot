@@ -1,0 +1,2 @@
+dev.snowdrop.vertx.http.server.ServerAutoConfiguration
+dev.snowdrop.vertx.http.client.ClientAutoConfiguration
